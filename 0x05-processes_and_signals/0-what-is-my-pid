@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # Prints its own process id
+
 echo "$$"
