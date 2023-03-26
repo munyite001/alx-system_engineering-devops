@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-ssh -o "StrictHostKeyChecking=no" -o "UserKnownHostsFile=/dev/null" -o "PasswordAuthentication=no" ubuntu@108096-web-01 -F /dev/null -o "IdentityFile=$HOME/.ssh/school"
+ssh ubuntu@54.165.77.76 -i ~/.ssh/school
