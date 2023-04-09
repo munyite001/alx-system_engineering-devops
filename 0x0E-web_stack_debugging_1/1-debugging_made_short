@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script changes the Nginx configuration to use port 80 instead of 8080,
+# then restarts the server and kills any remaining Nginx processes.
+NGINX_CONF_FILE="/etc/nginx/sites-enabled/default"
+sed -i 's/8080/80/g' "${NGINX_CONF_FILE}"
+service nginx restart
+pkill -o nginx
