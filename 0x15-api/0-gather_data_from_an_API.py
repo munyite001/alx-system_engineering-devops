@@ -17,7 +17,10 @@ if __name__ == "__main__":
         if task.get("userId") == int(id):
             user_tasks.append(task)
 
-    completeTasks = [task for task in user_tasks if task["completed"]]
+    completeTasks = []
+    for task in user_tasks:
+        if task.get("completed") is True:
+            completeTasks.append(task)
     tasks = f"{len(completeTasks)}/{len(user_tasks)}"
     print(f"Employee {name} is done with tasks({tasks}):")
     for task in completeTasks:
