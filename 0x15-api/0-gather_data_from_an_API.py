@@ -10,9 +10,13 @@ if __name__ == "__main__":
     id = sys.argv[1]
     user = requests.get(f'https://jsonplaceholder.typicode.com/users/{id}')
     user = user.json()
-    name = user["name"]
+    name = user.get("name")
     tasks = requests.get("https://jsonplaceholder.typicode.com/todos").json()
-    user_tasks = [task for task in tasks if int(task["userId"]) == int(id)]
+    user_tasks = []
+    for task in tasks:
+        if task.get("userId") == int(id):
+            user_tasks.append(task)
+
     completeTasks = [task for task in user_tasks if task["completed"]]
     tasks = f"{len(completeTasks)}/{len(user_tasks)}"
     print(f"Employee {name} is done with tasks({tasks}):")
