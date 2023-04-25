@@ -12,4 +12,4 @@ user_tasks = [task for task in tasks if int(task["userId"]) == int(sys.argv[1])]
 completeTasks = [task for task in user_tasks if task["completed"]]
 print(f"Employee {name} is done with tasks({len(completeTasks)}/{len(user_tasks)}):")
 for task in completeTasks:
-    print(f"\t{task['title']}")
+    print(f"\t {task['title']}")
