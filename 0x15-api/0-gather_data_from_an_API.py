@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """
-Get employee data from Rest API below
-API https://jsonplaceholder.typicode.com
-returns details of employee tasks progress
+Using https://jsonplaceholder.typicode.com
+returns info about employee TODO progress
 """
 import requests
 import sys
