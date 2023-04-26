@@ -1,16 +1,14 @@
 #!/usr/bin/python3
 """
-Get employee data
+Get employee data from Rest API below
 api => https://jsonplaceholder.typicode.com
-returns employee tasks
+returns details of employee tasks
 """
 import requests
 import sys
 
 
 api = "https://jsonplaceholder.typicode.com"
-"""REST api url"""
-
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
