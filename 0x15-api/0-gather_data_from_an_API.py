@@ -8,6 +8,7 @@ import sys
 
 
 api = "https://jsonplaceholder.typicode.com"
+"""json place holder REST API """
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
