@@ -2,13 +2,14 @@
 """
 Using https://jsonplaceholder.typicode.com
 returns info about employee TODO progress
+Implemented using recursion
 """
 import requests
 import sys
 
 
 api = "https://jsonplaceholder.typicode.com"
-"""json place holder REST API """
+"""REST API url"""
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
