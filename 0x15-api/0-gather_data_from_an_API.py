@@ -1,26 +1,31 @@
 #!/usr/bin/python3
 """
-    Get's the data about an employee
-    returns their todo list progress
+Get employee data
+api => https://jsonplaceholder.typicode.com
+returns employee tasks
 """
-
 import requests
 import sys
 
-api = "https://jsonplaceholder.typicode.com"
 
-if __name__ == "__main__":
-    try:
+api = "https://jsonplaceholder.typicode.com"
+"""REST api url"""
+
+
+if __name__ == '__main__':
+    if len(sys.argv) > 1:
         id = int(sys.argv[1])
-    except:
-        print("Invalid argument")
-        sys.exit()
-    user = requests.get(f'{api}/users/{id}').json()
-    name = user.get("name")
-    tasks = requests.get(f"{api}/todos").json()
-    user_tasks = [filter(lambda t: t.get("userId") == id, tasks)]
-    complete = [filter(lambda t: t.get("completed"), user_tasks)]
-    tasks = f"{len(complete)}/{len(user_tasks)}"
-    print(f"Employee {name} is done with tasks({tasks}):")
-    for task in complete:
-        print(f"\t {task['title']}")
+        employee = requests.get(f'{api}/users/{id}').json()
+        name = employee.get('name')
+
+        tasks = requests.get(f'{api}/todos').json()
+        empTasks = list(filter(lambda x: x.get('userId') == id, tasks))
+
+        complete = list(filter(lambda x: x.get('completed'), empTasks))
+
+        numC = len(complete)
+        numT = len(empTasks)
+        print(f'Employee {name} is done with tasks({numC}/{numT}):')
+
+        for task in complete:
+            print(f'\t {task.get("title")}')
