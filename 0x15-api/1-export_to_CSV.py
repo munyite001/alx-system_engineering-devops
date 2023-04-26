@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
 """
-Retrieves data from https://jsonplaceholder.typicode.com API and exports it
-to CSV file using recursion.
+Using https://jsonplaceholder.typicode.com
+gathers data from API and exports it to CSV file
+Implemented using recursion
 """
 
 import re
@@ -11,6 +12,7 @@ import sys
 
 
 API_URL = "https://jsonplaceholder.typicode.com"
+"""REST API url"""
 
 if __name__ == '__main__':
     if len(sys.argv) == 2 and re.match(r'\d+', sys.argv[1]):
